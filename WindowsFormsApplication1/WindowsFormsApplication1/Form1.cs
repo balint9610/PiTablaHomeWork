@@ -23,7 +23,8 @@ namespace WindowsFormsApplication1
 
 
         Thread t;
-        PrimeSearcher();
+
+        
 
         private void Form1_Load(object sender, EventArgs e)
         {
