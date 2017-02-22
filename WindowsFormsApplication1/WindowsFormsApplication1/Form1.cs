@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApplication1
 {
-    
+
     public partial class Form1 : Form
     {
         public Form1()
@@ -27,23 +27,10 @@ namespace WindowsFormsApplication1
 
         Thread t;
 
-        static int szam ;
-        static int aze  ;
-        static void prim1()
-        {
-            for (int i = 2; i < szam / 2; i++)
-            {
-                if (szam % i == 0)
-                {
-                    aze = 1; break;
-                   
-                   
-                }
-                 aze = 0; break;
-                
-            }
-        }
-    
+        static int szam;
+        //static int aze;
+
+
 
 
         private void Form1_Load(object sender, EventArgs e)
@@ -61,26 +48,81 @@ namespace WindowsFormsApplication1
             t.Start();
 
         }
-        void szal()
+        static int x = 0;
+        static int y = 0;
+        static int h;
+        static int w;
+        public void szal()
         {
-            bufferg.Clear(Color.White);
+           // bufferg.Clear(Color.White);
 
-            int h, w;
+            
 
             lock (buffer)
             {
                 h = buffer.Height;
                 w = buffer.Width;
             }
-            using (Graphics g = panel2.CreateGraphics())
+            for (y = 0; y < h; y++) //sor 
             {
-                lock (buffer)
-                    g.DrawImage(buffer, 0, 0);
+                for (x = 0; x < w; x++) //oszlop
+                {
+                    
+                    szam = (x * h) + w;
+                    
+                    if (isPrime(szam))
+                    {
+                        lock (buffer)
+                        {
+                            buffer.SetPixel(x, y, Color.Black);
+                        }
+                    }
+                    else
+                    {
+                        
+                            lock (buffer)
+                            {
+                                buffer.SetPixel(x, y, Color.White);
+                           }
+                        
+                    }
+                }
             }
 
             this.Invoke(new Action(() => { button1.Enabled = true; }));
         }
+       // static int aze = 1;
+        /*     static void prim1()
+             {
+                 for (int i = 2; i < szam /2; i++)
+                 {
+                     if (szam % i == 0)
+                     {
+                         aze = 1;
 
+                     }
+                     else
+                     {
+                         aze = 0;
+                     }
+                     }
+
+
+             } */
+        public static bool isPrime(int szam)
+        {
+            if (szam == 1) return false;
+            if (szam== 2) return true;
+
+            var boundary = (int)Math.Floor(Math.Sqrt(szam));
+
+            for (int i = 2; i <= boundary; ++i)
+            {
+                if (szam % i == 0) return false;
+            }
+
+            return true;
+        }
         private void timer1_Tick(object sender, EventArgs e)
         {
             if (buffer == null)
@@ -88,6 +130,6 @@ namespace WindowsFormsApplication1
 
            
         }
-       
+
     }
 }
