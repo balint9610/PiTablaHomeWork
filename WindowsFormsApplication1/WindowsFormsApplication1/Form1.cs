@@ -56,30 +56,30 @@ namespace WindowsFormsApplication1
         {
             // bufferg.Clear(Color.White);
 
-   
-               
-                lock (buffer)
+            
+
+            lock (buffer)
+            {
+                h = buffer.Height;
+                w = buffer.Width;
+            }
+            for (y = 0; y < h; y++) //sor 
+            {
+                for (x = 0; x < w; x++) //oszlop
                 {
-                    h = buffer.Height;
-                    w = buffer.Width;
-                }
-                for (y = 0; y < h; y++) //sor 
-                {
-                    for (x = 0; x < w; x++) //oszlop
+                    
+                    szam = (y*w)+x;
+                    
+                    if (isPrime(szam)==true)
                     {
-
-                        szam = (y * h) + w;
-
-                        if (isPrime(szam) == true)
+                        lock (buffer)
                         {
-                            lock (buffer)
-                            {
-                                buffer.SetPixel(x, y, Color.Black);
-                            }
+                            buffer.SetPixel(x, y, Color.Black);
                         }
-                        else
-                        {
-
+                    }
+                    else
+                    {
+                        
                             lock (buffer)
                             {
                                 buffer.SetPixel(x, y, Color.White);
