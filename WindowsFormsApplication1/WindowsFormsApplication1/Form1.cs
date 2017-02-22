@@ -23,8 +23,7 @@ namespace WindowsFormsApplication1
 
 
         Thread t;
-
-        
+        PrimeSearcher();
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -68,6 +67,20 @@ namespace WindowsFormsApplication1
                 lock (buffer)
                     g.DrawImage(buffer, 0, 0);
             }
+        }
+       static  class  PrimeSearcher
+        {
+            static bool prim1(int p)
+            {
+                for (int i = 2; i < p; i++)
+                {
+                    if (p%i ==0)
+                    {
+                        return true;
+                    }
+                }return false;
+            }
+
         }
     }
 }
