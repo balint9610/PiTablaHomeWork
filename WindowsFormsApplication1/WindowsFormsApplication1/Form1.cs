@@ -11,6 +11,7 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApplication1
 {
+    
     public partial class Form1 : Form
     {
         public Form1()
@@ -23,7 +24,23 @@ namespace WindowsFormsApplication1
 
 
         Thread t;
-        PrimeSearcher();
+
+        static int szam;
+        static int aze;
+        static void prim1()
+        {
+            for (int i = 2; i < szam/2; i++)
+            {
+                if (szam % i == 0)
+                {
+                    aze =  1;
+                }
+            }
+            aze = 0;
+        }
+
+
+
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -51,8 +68,18 @@ namespace WindowsFormsApplication1
                 h = buffer.Height;
                 w = buffer.Width;
             }
+            for (int y = 0; y < h; h++) //sor 
+            {
+                for (int x = 0; x < w; x++) //oszlop
+                {
+                    szam = x * h + w;
+                    if (aze == 1)
+                    {
+                        buffer.SetPixel(x, y, Color.Black);
 
-           
+                    }
+                }
+            }
 
             this.Invoke(new Action(() => { button1.Enabled = true; }));
         }
@@ -68,19 +95,6 @@ namespace WindowsFormsApplication1
                     g.DrawImage(buffer, 0, 0);
             }
         }
-       static  class  PrimeSearcher
-        {
-            static bool prim1(int p)
-            {
-                for (int i = 2; i < p; i++)
-                {
-                    if (p%i ==0)
-                    {
-                        return true;
-                    }
-                }return false;
-            }
-
-        }
+       
     }
 }
