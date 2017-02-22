@@ -54,42 +54,45 @@ namespace WindowsFormsApplication1
         static int w;
         public void szal()
         {
-           // bufferg.Clear(Color.White);
+            // bufferg.Clear(Color.White);
 
-            
-
-            lock (buffer)
-            {
-                h = buffer.Height;
-                w = buffer.Width;
-            }
-            for (y = 0; y < h; y++) //sor 
-            {
-                for (x = 0; x < w; x++) //oszlop
+   
+               
+                lock (buffer)
                 {
-                    
-                    szam = (x * h) + w;
-                    
-                    if (isPrime(szam))
+                    h = buffer.Height;
+                    w = buffer.Width;
+                }
+                for (y = 0; y < h; y++) //sor 
+                {
+                    for (x = 0; x < w; x++) //oszlop
                     {
-                        lock (buffer)
+
+                        szam = (y * h) + w;
+
+                        if (isPrime(szam) == true)
                         {
-                            buffer.SetPixel(x, y, Color.Black);
+                            lock (buffer)
+                            {
+                                buffer.SetPixel(x, y, Color.Black);
+                            }
                         }
-                    }
-                    else
-                    {
-                        
+                        else
+                        {
+
                             lock (buffer)
                             {
                                 buffer.SetPixel(x, y, Color.White);
-                           }
-                        
+                            }
+
+                        }
                     }
                 }
-            }
 
-            this.Invoke(new Action(() => { button1.Enabled = true; }));
+                this.Invoke(new Action(() => { button1.Enabled = true; }));
+            }  
+
+           
         }
        // static int aze = 1;
         /*     static void prim1()
