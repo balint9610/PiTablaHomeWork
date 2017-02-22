@@ -115,12 +115,27 @@ namespace WindowsFormsApplication1
 
             var boundary = (int)Math.Floor(Math.Sqrt(szam));
 
-            for (int i = 2; i <= boundary; ++i)
+            for (int i = 2; i <= boundary/2; ++i)
             {
                 if (szam % i == 0) return false;
             }
 
             return true;
+        }
+       
+        static void Osztok()
+        {
+            int c = 0;
+           
+            for (int b = 1; b <= szam; b++)
+            {
+                if (szam % b == 0)
+                {
+                    Form2.Listbox1.Add(b.ToString);
+                }
+            }
+
+
         }
         private void timer1_Tick(object sender, EventArgs e)
         {
