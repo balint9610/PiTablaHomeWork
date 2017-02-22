@@ -37,6 +37,8 @@ namespace WindowsFormsApplication1
             buffer = new Bitmap(panel2.Width, panel2.Height);
             lock (buffer)
                 bufferg = Graphics.FromImage(buffer);
+            
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -51,7 +53,7 @@ namespace WindowsFormsApplication1
         static int y = 0;
         static int h;
         static int w;
-        public void szal()
+        void szal()
         {
            // bufferg.Clear(Color.White);
 
@@ -66,10 +68,10 @@ namespace WindowsFormsApplication1
             {
                 for (x = 0; x < w; x++) //oszlop
                 {
-                    
+                   
                     szam = (y*w)+x;
-                    
-                    if (isPrime(szam)==true)
+                     
+                    if (isPrime(szam))
                     {
                         lock (buffer)
                         {
@@ -125,13 +127,12 @@ namespace WindowsFormsApplication1
        
         static void Osztok()
         {
-            int c = 0;
-           
+            
             for (int b = 1; b <= szam; b++)
             {
                 if (szam % b == 0)
                 {
-                    Form2.Listbox1.Add(b.ToString);
+                  //  Form2.Listbox1.Add(b.ToString);
                 }
             }
 
@@ -149,5 +150,6 @@ namespace WindowsFormsApplication1
             }
         }
 
+       
     }
 }
