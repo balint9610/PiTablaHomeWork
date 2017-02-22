@@ -20,10 +20,33 @@ namespace WindowsFormsApplication1
 
         Bitmap buffer;
         Graphics bufferg;
+        static int szam;
+        static bool  prim1()
+        {
+            for (int i = 2; i < szam; i++)
+            {
+                if (szam % i == 0)
+                {
+                    int igaz = 1;
+                    return true;
+                    
+                    
+                }
+            }
+            int hamis = 0;
+            return false;
+           
+            
+        }
+
+      
 
 
         Thread t;
-        PrimeSearcher();
+       
+            
+
+            
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -68,18 +91,8 @@ namespace WindowsFormsApplication1
                     g.DrawImage(buffer, 0, 0);
             }
         }
-        class PrimeSearcher
-        {
-            static bool prim1(int p)
-            {
-                for (int i = 2; i < p; i++)
-                {
-                    if (p%i ==0)
-                    {
-                        return true;
-                    }
-                }return false;
-            }
-        }
+        
+
+       
     }
 }
