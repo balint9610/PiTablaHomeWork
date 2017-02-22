@@ -67,9 +67,9 @@ namespace WindowsFormsApplication1
                 for (x = 0; x < w; x++) //oszlop
                 {
                     
-                    szam = (x * h) + w;
+                    szam = (y*w)+x;
                     
-                    if (isPrime(szam))
+                    if (isPrime(szam)==true)
                     {
                         lock (buffer)
                         {
