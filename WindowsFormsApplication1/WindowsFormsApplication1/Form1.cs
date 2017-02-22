@@ -21,45 +21,29 @@ namespace WindowsFormsApplication1
 
         Bitmap buffer;
         Graphics bufferg;
-        static int szam;
-        static bool  prim1()
-        {
-            for (int i = 2; i < szam; i++)
-            {
-                if (szam % i == 0)
-                {
-                    int igaz = 1;
-                    return true;
-                    
-                    
-                }
-            }
-            int hamis = 0;
-            return false;
-           
-            
-        }
 
       
 
 
         Thread t;
 
-        static int szam;
-        static int aze;
+        static int szam ;
+        static int aze  ;
         static void prim1()
         {
-            for (int i = 2; i < szam/2; i++)
+            for (int i = 2; i < szam / 2; i++)
             {
                 if (szam % i == 0)
                 {
-                    aze =  1;
+                    aze = 1; break;
+                   
+                   
                 }
+                 aze = 0; break;
+                
             }
-            aze = 0;
         }
-
-
+    
 
 
         private void Form1_Load(object sender, EventArgs e)
@@ -88,17 +72,10 @@ namespace WindowsFormsApplication1
                 h = buffer.Height;
                 w = buffer.Width;
             }
-            for (int y = 0; y < h; h++) //sor 
+            using (Graphics g = panel2.CreateGraphics())
             {
-                for (int x = 0; x < w; x++) //oszlop
-                {
-                    szam = x * h + w;
-                    if (aze == 1)
-                    {
-                        buffer.SetPixel(x, y, Color.Black);
-
-                    }
-                }
+                lock (buffer)
+                    g.DrawImage(buffer, 0, 0);
             }
 
             this.Invoke(new Action(() => { button1.Enabled = true; }));
@@ -109,11 +86,7 @@ namespace WindowsFormsApplication1
             if (buffer == null)
                 return;
 
-            using (Graphics g = panel2.CreateGraphics())
-            {
-                lock (buffer)
-                    g.DrawImage(buffer, 0, 0);
-            }
+           
         }
        
     }
