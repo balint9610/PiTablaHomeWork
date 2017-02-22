@@ -23,6 +23,19 @@ namespace WindowsFormsApplication1
         Graphics bufferg;
 
       
+                 
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         Thread t;
