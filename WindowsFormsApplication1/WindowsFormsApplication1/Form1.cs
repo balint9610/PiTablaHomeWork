@@ -25,7 +25,7 @@ namespace WindowsFormsApplication1
 
         Thread t;
 
-        static int szam;
+        public int szam;
         //static int aze;
 
 
@@ -150,6 +150,13 @@ namespace WindowsFormsApplication1
             }
         }
 
-       
+        private void panel2_MouseClick(object sender, MouseEventArgs e)
+        {
+
+            ablak2 ablak2 = new ablak2();
+            ablak2.ShowDialog(this);
+           
+
+        }
     }
 }
