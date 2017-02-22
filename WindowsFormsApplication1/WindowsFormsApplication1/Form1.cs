@@ -22,21 +22,6 @@ namespace WindowsFormsApplication1
         Bitmap buffer;
         Graphics bufferg;
 
-      
-                 
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         Thread t;
 
@@ -81,7 +66,7 @@ namespace WindowsFormsApplication1
                 for (x = 0; x < w; x++) //oszlop
                 {
                     
-                    szam = (y*w)+x;
+                    szam = (h*w)+x;
                     
                     if (isPrime(szam)==true)
                     {
