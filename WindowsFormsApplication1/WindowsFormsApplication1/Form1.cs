@@ -19,7 +19,20 @@ namespace WindowsFormsApplication1
 
         private void Form1_Load(object sender, EventArgs e)
         {
-                
+
+        }
+        class PrimeSearcher
+        {
+            static bool prim1(int p)
+            {
+                for (int i = 2; i < p; i++)
+                {
+                    if (p%i ==0)
+                    {
+                        return true;
+                    }
+                }return false;
+            }
         }
     }
 }
