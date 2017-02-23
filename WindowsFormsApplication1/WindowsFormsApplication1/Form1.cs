@@ -26,7 +26,7 @@ namespace WindowsFormsApplication1
         Thread t;
 
         public int szam;
-        //static int aze;
+        
 
 
 
@@ -55,7 +55,7 @@ namespace WindowsFormsApplication1
         static int w;
         void szal()
         {
-           // bufferg.Clear(Color.White);
+          
 
             
 
@@ -92,24 +92,7 @@ namespace WindowsFormsApplication1
 
             this.Invoke(new Action(() => { button1.Enabled = true; }));
         }
-       // static int aze = 1;
-        /*     static void prim1()
-             {
-                 for (int i = 2; i < szam /2; i++)
-                 {
-                     if (szam % i == 0)
-                     {
-                         aze = 1;
-
-                     }
-                     else
-                     {
-                         aze = 0;
-                     }
-                     }
-
-
-             } */
+       
         public static bool isPrime(int szam)
         {
             if (szam == 1) return false;
@@ -125,7 +108,7 @@ namespace WindowsFormsApplication1
             return true;
         }
        
-        static void Osztok()
+        public void Osztok()
         {
             
             for (int b = 1; b <= szam; b++)
@@ -134,10 +117,10 @@ namespace WindowsFormsApplication1
                 {
                   //  Form2.Listbox1.Add(b.ToString);
                 }
-            }
+            } 
 
 
-        }
+        } 
         private void timer1_Tick(object sender, EventArgs e)
         {
             if (buffer == null)
@@ -156,6 +139,13 @@ namespace WindowsFormsApplication1
             ablak2 ablak2 = new ablak2();
             ablak2.ShowDialog(this);
            
+
+        }
+        private void panel2_MouseMove(object sender, MouseEventArgs e)
+        {
+
+            
+
 
         }
     }
